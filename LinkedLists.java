@@ -123,6 +123,23 @@ public class LinkedLists<T> {
 	      temp.next = null;
 	    }
 	  }
+	  
+	  public void findNode(T nodeToFind) {
+		    if (isEmpty()) {
+		      System.out.println("list empty! cant add after " + nodeToFind);
+		    } else {
+		      Node<T> temp = head;
+		      int count = 0;
+			for (int i = 1; i <= count; i++) {    //looping until we find the given node.
+		        if (temp.data == nodeToFind) {
+		          System.out.println(nodeToFind + " found at index " + i);
+		          return;
+		        }
+		        temp = temp.next;
+		      }
+		      System.out.println("we couldnt find " + nodeToFind + " in the list.");    //when looped till the end and couldn't find the node
+		    }
+		  }
 }
 
 class Node<T> {
