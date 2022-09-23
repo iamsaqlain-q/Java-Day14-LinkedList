@@ -94,6 +94,14 @@ public class LinkedLists<T> {
 			count++;
 		}
 	}
+
+	public void deleteFirst() {
+		if (head == null) {
+			System.out.println("list is empty!");
+			return;
+		} else
+			head = head.next;
+	}
 }
 
 class Node<T> {
