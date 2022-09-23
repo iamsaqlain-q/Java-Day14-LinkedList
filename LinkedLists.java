@@ -165,6 +165,50 @@ public class LinkedLists<T> {
 			System.out.println("we couldnt find " + prevNode + " in the list. perhaps try a different node");
 		}
 	}
+
+	public short size() {
+		if (isEmpty())
+			return 0;
+		else if (head.next == null)
+			return 1;
+		else {
+			short size = 1;
+			Node<T> temp = head;
+			short count = 0;
+			for (short i = 0; i <= count; i++) {
+				if (temp.next == null)
+					return size;
+				temp = temp.next;
+				size++;
+			}
+			return size;
+		}
+	}
+
+	public void deleteNode(T nodeTodelete) {
+		if (isEmpty()) {
+			System.out.println("list empty! cant delete " + nodeTodelete);
+		} else if (head.data == nodeTodelete) {
+			System.out.println("deleted " + nodeTodelete + " from index " + 1);
+			pop();
+		} else {
+			Node<T> temp = head;
+			Node<T> temp2 = head.next;
+			int count = 0;
+			for (int i = 2; i <= count; i++) {
+				if (temp2.data == nodeTodelete) {
+					System.out.println("deleted " + nodeTodelete + " from index " + i);
+					temp.next = temp2.next;
+					count--;
+					return;
+				}
+				temp = temp.next;
+				temp2 = temp2.next;
+			}
+			System.out.println("we couldnt find " + nodeTodelete + " in the list."); // when looped till the end and
+																						// couldn't find the node
+		}
+	}
 }
 
 class Node<T> {

@@ -12,6 +12,10 @@ public class List {
 	    linkedL.display();
 	    linkedL.addNodeAfter(30, 40);
 	    linkedL.display();
+	    System.out.println("size is " + linkedL.size());
+	    linkedL.deleteNode(70);
+	    System.out.println("size is " + linkedL.size());
+	    linkedL.display();
 
 	  }
 }
