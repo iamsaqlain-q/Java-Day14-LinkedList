@@ -10,7 +10,7 @@ public class List {
 	    linkedL.display();
 	    linkedL.insertAt(2, 30);
 	    linkedL.display();
-	    linkedL.findNode(30);
+	    linkedL.addNodeAfter(30, 40);
 	    linkedL.display();
 
 	  }

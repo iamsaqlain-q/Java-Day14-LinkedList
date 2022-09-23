@@ -102,44 +102,69 @@ public class LinkedLists<T> {
 		} else
 			head = head.next;
 	}
-	
+
 	public void pop() {
-	    if (head == null) {
-	      System.out.println("list is empty!");
-	      return;
-	    } else head = head.next;
-	  }
+		if (head == null) {
+			System.out.println("list is empty!");
+			return;
+		} else
+			head = head.next;
+	}
 
-	  public void popLast() {
-	    if (head == null) {
-	      System.out.println("list is empty!");
-	      return;
-	    } else if (head.next == null) head = head.next;
-	    else {
-	      Node<T> temp = head;
+	public void popLast() {
+		if (head == null) {
+			System.out.println("list is empty!");
+			return;
+		} else if (head.next == null)
+			head = head.next;
+		else {
+			Node<T> temp = head;
 
-	      while (temp.next.next != null) temp = temp.next;
-	      System.out.println("deleted " + temp.next.data);
-	      temp.next = null;
-	    }
-	  }
-	  
-	  public void findNode(T nodeToFind) {
-		    if (isEmpty()) {
-		      System.out.println("list empty! cant add after " + nodeToFind);
-		    } else {
-		      Node<T> temp = head;
-		      int count = 0;
-			for (int i = 1; i <= count; i++) {    //looping until we find the given node.
-		        if (temp.data == nodeToFind) {
-		          System.out.println(nodeToFind + " found at index " + i);
-		          return;
-		        }
-		        temp = temp.next;
-		      }
-		      System.out.println("we couldnt find " + nodeToFind + " in the list.");    //when looped till the end and couldn't find the node
-		    }
-		  }
+			while (temp.next.next != null)
+				temp = temp.next;
+			System.out.println("deleted " + temp.next.data);
+			temp.next = null;
+		}
+	}
+
+	public void findNode(T nodeToFind) {
+		if (isEmpty()) {
+			System.out.println("list is empty! cant add after " + nodeToFind);
+		} else {
+			Node<T> temp = head;
+			int count = 0;
+			for (int i = 1; i <= count; i++) {
+				if (temp.data == nodeToFind) {
+					System.out.println(nodeToFind + " found at index " + i);
+					return;
+				}
+				temp = temp.next;
+			}
+			System.out.println("we couldnt find " + nodeToFind + " in the list.");
+		}
+	}
+
+	public void addNodeAfter(T prevNode, T nodeToAdd) {
+		if (isEmpty()) {
+			System.out.println("list is empty! cant add after " + prevNode);
+		} else {
+			Node<T> temp = head;
+
+			int count = 0;
+			for (int i = 1; i <= count; i++) {
+				if (temp.data == prevNode) {
+					Node<T> newNode = new Node<>(nodeToAdd);
+					newNode.next = temp.next;
+					temp.next = newNode;
+					System.out.println(
+							prevNode + " found at index " + i + ". added " + nodeToAdd + " at index " + (i + 1));
+					return;
+				}
+				temp = temp.next;
+			}
+			System.out.println("we couldnt find " + prevNode + " in the list. perhaps try a different node");
+		}
+	}
 }
 
 class Node<T> {
