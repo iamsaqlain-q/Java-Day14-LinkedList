@@ -1,5 +1,7 @@
 package com.bl.linkedlist;
 
+import java.util.ArrayList;
+
 public class LinkedLists<T> {
 
 	  Node<T> head;
@@ -15,6 +17,12 @@ public class LinkedLists<T> {
 	    }
 	  }
 	  
+	  private boolean isEmpty() {
+		    if (head == null) 
+		    	return true;
+		    return false;
+		  }
+	  
 	  public void addFirst(T item) {
 		    Node<T> newNode = new Node<>(item);
 
@@ -27,7 +35,7 @@ public class LinkedLists<T> {
 
 		  public void display() {
 		    if (isEmpty()) {
-		      System.out.println("list empty! nothing to display");
+		      System.out.println("list is empty! ");
 		      return;
 		    }
 
@@ -39,11 +47,26 @@ public class LinkedLists<T> {
 		    System.out.println(temp.data);
 		  }
 
-		  private boolean isEmpty() {
-		    if (head == null) 
-		    	return true;
-		    return false;
-		  }
+		  public void displayFromEnd() {
+			    if (isEmpty()) {
+			      System.out.println("list is empty! ");
+			      return;
+			    }
+
+			    ArrayList<T> nodes = new ArrayList<>(); 
+			    Node<T> temp = head;
+			    
+			    while (temp.next != null) {
+			        nodes.add(temp.data); 
+			        temp = temp.next;
+			      }
+			    nodes.add(temp.data);
+
+			    for (int i = nodes.size() - 1; i > 0; i--) {
+			      System.out.print(nodes.get(i) + " -> ");
+			    }
+			    System.out.println(nodes.get(0));
+			  }
 
 		}
 
